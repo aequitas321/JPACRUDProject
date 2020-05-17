@@ -54,6 +54,18 @@ public class SoccerTeam {
 		this.teamLogo = teamLogo;
 	}
 
+	public SoccerTeam(String name, String league, String city, String country, String stadium, Integer domesticTitles,
+			String teamLogo) {
+		super();
+		this.name = name;
+		this.league = league;
+		this.city = city;
+		this.country = country;
+		this.stadium = stadium;
+		this.domesticTitles = domesticTitles;
+		this.teamLogo = teamLogo;
+	}
+
 	public int getId() {
 		return id;
 	}

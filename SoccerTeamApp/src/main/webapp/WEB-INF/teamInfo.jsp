@@ -16,6 +16,10 @@
 		<li>Country: ${team.country}</li>
 		<li>Domestic Titles: ${team.domesticTitles}</li>
 	</ul>
-	<a href="index.do">Home</a>
+	<a href="index.do"><button>Home</button></a>
+	<a href="update.do?id=${team.id}"><button>Update</button></a>
+	<form action="delete.do?id=${team.id}" method="post">
+	<input type="submit" value="Delete">
+	</form>
 </body>
 </html>

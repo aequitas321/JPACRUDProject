@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.soccerTeams.data.SoccerTeamDAO;
@@ -39,5 +40,43 @@ public class SoccerTeamController {
 		List<SoccerTeam> teams = dao.findByLeague(league);
 		model.addAttribute("teams", teams);
 		return "teambyleague";
+	}
+
+	@RequestMapping(path = "create.do")
+	public String create() {
+
+		return "create";
+	}
+
+	@RequestMapping(path = "createTeam.do", method = RequestMethod.POST)
+	public String createTeam(SoccerTeam team, Model model) {
+
+		SoccerTeam teamToCreate = dao.createTeam(team);
+		model.addAttribute("teamToCreate", teamToCreate);
+		return "teamCreated";
+	}
+
+	@RequestMapping(path = "update.do")
+	public String teamToUpdate(@RequestParam Integer id, Model model) {
+
+		SoccerTeam teamUpdate = dao.findById(id);
+		model.addAttribute("teamUpdate", teamUpdate);
+		System.out.println(teamUpdate);
+		return "update";
+	}
+
+	@RequestMapping(path = "updatedTeam.do", method = RequestMethod.POST)
+	public String updatedTeam(@RequestParam Integer id, SoccerTeam team, Model model) {
+		System.out.println(id);
+		SoccerTeam teamUpdated = dao.updateTeam(team, id);
+		model.addAttribute("teamUpdated", teamUpdated);
+		return "teamUpdated";
+	}
+	
+	@RequestMapping(path="delete.do", method= RequestMethod.POST)
+	public String deleteTeam(@RequestParam int id, Model model) {
+		SoccerTeam teamDelete = dao.deleteTeam(id);
+		model.addAttribute("teamDelete", teamDelete);
+		return "deleteTeam";
 	}
 }

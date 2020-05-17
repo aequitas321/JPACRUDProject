@@ -5,14 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Teams in League</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<ul>
-		<c:forEach var="team" items="${teams}">
-			<li><a href="getSoccerTeam.do?id=${team.id}">${team.name}</a></li>
-		</c:forEach>
-	</ul>
+	<c:choose>
+		<c:when test="${teamUpdated != null}">
+			<h1>Team updated Successfully</h1>
+		</c:when>
+		<c:otherwise>Unable to create Team</c:otherwise>
+	</c:choose>
 	<a href="index.do"><button>Home</button></a>
 </body>
 </html>

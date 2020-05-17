@@ -19,6 +19,7 @@ public class SoccerTeamDAOImpl implements SoccerTeamDAO {
 
 	@Override
 	public SoccerTeam findById(int id) {
+		em.close();
 		return em.find(SoccerTeam.class, id);
 
 	}
@@ -28,13 +29,47 @@ public class SoccerTeamDAOImpl implements SoccerTeamDAO {
 		List<SoccerTeam> teams;
 		String jpql = "SELECT team FROM SoccerTeam team WHERE league LIKE '" + "%" + league + "%'";
 		teams = em.createQuery(jpql, SoccerTeam.class).getResultList();
+		em.close();
 		return teams;
 	}
 
 	@Override
 	public SoccerTeam findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		String jpql = "SELECT team FROM SoccerTeam team WHERE name LIKE '" + "%" + name + "%'";
+		SoccerTeam team = em.createQuery(jpql, SoccerTeam.class).getSingleResult();
+		em.close();
+		return team;
+	}
+
+	@Override
+	public SoccerTeam createTeam(SoccerTeam team) {
+		em.persist(team);
+		em.flush();
+		em.close();
+		return team;
+
+	}
+
+	@Override
+	public SoccerTeam updateTeam(SoccerTeam team, int id) {
+		System.out.println(team);
+		SoccerTeam newTeam = em.find(SoccerTeam.class, id);
+		newTeam.setCity(team.getCity());
+		newTeam.setCountry(team.getCountry());
+		newTeam.setDomesticTitles(team.getDomesticTitles());
+		newTeam.setLeague(team.getLeague());
+		newTeam.setName(team.getName());
+		newTeam.setStadium(team.getStadium());
+		em.close();
+		return newTeam;
+	}
+
+	@Override
+	public SoccerTeam deleteTeam(int id) {
+		SoccerTeam deleteTeam = em.find(SoccerTeam.class, id);
+		em.remove(deleteTeam);
+		em.close();
+		return deleteTeam;
 	}
 
 }

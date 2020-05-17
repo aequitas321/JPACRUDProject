@@ -4,13 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Search by League</title>
+<title>Delete Conformation</title>
 </head>
 <body>
-	<form action="getTeamByLeague.do" method="GET">
-		League: <input type="text" name="league" /> <input type="submit"
-			value="Search" />
-	</form>
+	<h1>Team Deleted</h1>
 	<a href="index.do"><button>Home</button></a>
 </body>
 </html>
