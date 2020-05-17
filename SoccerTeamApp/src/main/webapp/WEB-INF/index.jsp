@@ -9,6 +9,7 @@
 <body>
 	<h1>Soccer Team Info</h1>
 	<a href="searchByLeague.do"><button>Search By League</button></a>
+	<a href="searchById.do"><button>Search by Team ID</button></a>
 	<a href="create.do"><button>Create your own team</button></a>
 </body>
 </html>

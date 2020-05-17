@@ -23,6 +23,11 @@ public class SoccerTeamController {
 		return "index";
 	}
 
+	@RequestMapping(path = "searchById.do")
+	public String searchById() {
+		return "searchById";
+	}
+
 	@RequestMapping(path = "getSoccerTeam.do")
 	public String findSoccerTeam(@RequestParam Integer id, Model model) {
 		SoccerTeam team = dao.findById(id);
@@ -72,8 +77,8 @@ public class SoccerTeamController {
 		model.addAttribute("teamUpdated", teamUpdated);
 		return "teamUpdated";
 	}
-	
-	@RequestMapping(path="delete.do", method= RequestMethod.POST)
+
+	@RequestMapping(path = "delete.do", method = RequestMethod.POST)
 	public String deleteTeam(@RequestParam int id, Model model) {
 		SoccerTeam teamDelete = dao.deleteTeam(id);
 		model.addAttribute("teamDelete", teamDelete);

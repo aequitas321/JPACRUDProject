@@ -31,7 +31,7 @@ class soccerTeamTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		soccerTeam = em.find(SoccerTeam.class, 1);
+		soccerTeam = em.find(SoccerTeam.class, 4);
 	}
 
 	@AfterEach
@@ -43,7 +43,12 @@ class soccerTeamTest {
 	@Test
 	void test() {
 		assertNotNull(soccerTeam);
-		assertEquals("BVB Dortmund", soccerTeam.getName());
+		assertEquals("Borussia Dortmund", soccerTeam.getName());
+		assertEquals("Bundesliga", soccerTeam.getLeague());
+		assertEquals("Dortmund", soccerTeam.getCity());
+		assertEquals("Germany", soccerTeam.getCountry());
+		assertEquals("Signal Iduna Park", soccerTeam.getStadium());
+		assertEquals(5, soccerTeam.getDomesticTitles());
 	}
 
 }
