@@ -6,6 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="bootstrapHead.jsp" />
+<link rel="stylesheet" type="text/css" href="resources/styles.css">
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Righteous">
 </head>
 <body>
 	<c:choose>
@@ -15,5 +19,6 @@
 		<c:otherwise>Unable to create Team</c:otherwise>
 	</c:choose>
 	<a href="index.do"><button>Home</button></a>
+	<jsp:include page="bootstrapFoot.jsp" />
 </body>
 </html>

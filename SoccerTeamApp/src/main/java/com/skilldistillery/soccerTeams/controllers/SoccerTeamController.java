@@ -49,13 +49,11 @@ public class SoccerTeamController {
 
 	@RequestMapping(path = "create.do")
 	public String create() {
-
 		return "create";
 	}
 
 	@RequestMapping(path = "createTeam.do", method = RequestMethod.POST)
 	public String createTeam(SoccerTeam team, Model model) {
-
 		SoccerTeam teamToCreate = dao.createTeam(team);
 		model.addAttribute("teamToCreate", teamToCreate);
 		return "teamCreated";
@@ -63,7 +61,6 @@ public class SoccerTeamController {
 
 	@RequestMapping(path = "update.do")
 	public String teamToUpdate(@RequestParam Integer id, Model model) {
-
 		SoccerTeam teamUpdate = dao.findById(id);
 		model.addAttribute("teamUpdate", teamUpdate);
 		System.out.println(teamUpdate);
@@ -71,11 +68,11 @@ public class SoccerTeamController {
 	}
 
 	@RequestMapping(path = "updatedTeam.do", method = RequestMethod.POST)
-	public String updatedTeam(@RequestParam Integer id, SoccerTeam team, Model model) {
-		System.out.println(id);
+	public String updatedTeam(@RequestParam int id, SoccerTeam team, Model model) {
 		SoccerTeam teamUpdated = dao.updateTeam(team, id);
 		model.addAttribute("teamUpdated", teamUpdated);
 		return "teamUpdated";
+
 	}
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.POST)

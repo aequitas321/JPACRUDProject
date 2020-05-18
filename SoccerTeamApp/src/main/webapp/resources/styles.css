@@ -1,0 +1,31 @@
+.indexButton {
+	background: #ff5200;
+}
+
+body {
+	font-family: 'Righteous', serif !important;
+	background-image: url('https://wallpaperaccess.com/full/1249002.jpg') ;
+	/* background: #222831 !important; */
+	text-align: center !important;
+}
+
+.indexH1 {
+	color: #ff5200;
+}
+
+li {
+	color: #ff5200;
+	list-style-type: none;
+}
+
+ul {
+	padding-left: 0;
+}
+
+.form-group {
+	color: #ff5200;
+}
+
+.inputText{
+	color: #ff5200;
+}

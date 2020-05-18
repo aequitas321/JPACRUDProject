@@ -46,10 +46,11 @@ public class SoccerTeamDAOImpl implements SoccerTeamDAO {
 		em.persist(team);
 		em.flush();
 		em.close();
+		System.out.println(team);
 		return team;
 
 	}
-
+	
 	@Override
 	public SoccerTeam updateTeam(SoccerTeam team, int id) {
 		System.out.println(team);
@@ -60,6 +61,7 @@ public class SoccerTeamDAOImpl implements SoccerTeamDAO {
 		newTeam.setLeague(team.getLeague());
 		newTeam.setName(team.getName());
 		newTeam.setStadium(team.getStadium());
+		newTeam.setTeamLogo(team.getTeamLogo());
 		em.close();
 		return newTeam;
 	}

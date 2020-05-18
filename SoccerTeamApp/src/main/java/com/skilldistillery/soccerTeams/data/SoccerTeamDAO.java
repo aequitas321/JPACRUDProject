@@ -1,6 +1,5 @@
 package com.skilldistillery.soccerTeams.data;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import com.skilldistillery.soccerTeams.entities.SoccerTeam;
@@ -14,8 +13,8 @@ public interface SoccerTeamDAO {
 	public SoccerTeam findByName(String name);
 
 	public SoccerTeam createTeam(SoccerTeam team);
-	
+
 	public SoccerTeam updateTeam(SoccerTeam team, int id);
-	
+
 	public SoccerTeam deleteTeam(int id);
 }
